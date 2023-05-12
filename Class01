@@ -59,6 +59,114 @@ In 1.24 they have compleatly remove in 1.24 so we cannot use , insted of docker 
 
 
 
+What components are thier in control plain ?
+
+
+It will control complete components which are thier in the controlplane 
+
+1)API Server
+
+The name it self it is getting API calls. even though if you are executing any command [updating deploying, creating, deleting]  your are getting API calls
+
+
+
+API Server:
+-----------------
+
+Q)What is the role of API Server? 
+
+1.API Server is one process this going to intract with  K8s API's it is like frount end for k8s controle plane 
+
+
+2.The API Server Authenticate& authorize the request before it process the request
+
+
+Kubectl:
+---------------
+
+s.w to intract with control plane 
+
+
+ETCD:
+----------
+
+it is like Key value pair .
+
+It is DB for k8s ,how many volumes,pods Deployment
+
+
+scheduler:
+--------------
+
+Sheduler is going to shedule the pods to the nodes 
+
+Sheduler will scheduled unSheduler pods
+
+Sheduler will check in the etcd Sheduler will scheduled unSheduler pods 
+Sheduler will assign nodes to the pods 
+
+
+
+
+ 
+
+What ever the command execuited Requests go to Api server & API servers first Authenticate& authorize the before it process the request 
+
+
+Q)What is Authenticate& authorize?
+
+Authenticate: he is valied user/not & Authentication happen for using certificates /tockens/username& password 
+
+
+Authorization:Whether that guy has permissions or not .
+
+The API Server Authenticate& authorize the request before it process the request 
+
+
+
+
+
+Q)How can I intract with API Server?
+
+A)Kubectl Software/ GUI [Graphical User Intrface] Also & to communicate with control plane we use kubectl software
+
+
+ 
+
+     
+
+
+
+
+2)Control manager
+
+3)scheduler 
+
+4)ETCD
+
+
+What are the K8s Components in worker?
+
+1)Kubelet
+
+2)Kubeproxy
+
+
+k8s has 2 types of node 
+
+masternode/servers	
+
+worker/slaves/servers/Minions
+
+
+Q) what is the role of master machine?
+
+A) Master machine is resposible for management of the k8s cluster . Master is the main entry point to manage the k8s Cluster [updating deploying, creating, deleting]
+
+
+
+
+
  
 
 
