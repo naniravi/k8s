@@ -164,12 +164,13 @@ Kubeproxy or network Proxy
 ==============
 
 
-using the kubepoxy will i able to access within the cluster or outside the cluster  
+using the kubepoxy will i able to access Applicatins  within the cluster or outside the cluster  
 
 Ex:
 
 I deployed application in cluster now I want to acess my application kubeproxy is make it possible for acess my application 
 
+kubeproxy will helps network Proxy & loadBalancer in k8s cluster
 
 
 
