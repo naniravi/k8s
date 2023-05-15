@@ -1,0 +1,29 @@
+self Managed K8s Clusters
+====================
+We need to manage cluster install configure,configure etc...
+
+1.Minikube
+2.Kubeadm
+3.Rancher
+4 KubeProxy
+
+https://Labs.play-with-k8s.com to practice k8s in online 
+
+
+
+
+Managed (Cloud Managed) K8s Clusters
+==========================
+
+
+1.EKS--> Elastic K8s service(AWS)
+2.AKS--> AZure k8s Service (Azure)
+3.GKE---> Google K8s Engine
+4.IKE---> IBM k8s Engine
+
+
+
+
+
+
+
