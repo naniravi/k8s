@@ -2,9 +2,16 @@ self Managed K8s Clusters
 ====================
 We need to manage cluster install configure,configure etc...
 
-1.Minikube
-2.Kubeadm
-3.Rancher
+1.Minikube --> Single node k8s cluster not used in production env.I want to do some POc's we can use 
+2.Kubeadm--->kubeadm is one software using kubeadm we can setup multinode k8s clusters
+3.Kubespray--> Ansible Way of Configuring  (Installing k8s clusters)
+
+
+
+
+
+
+
 
 
 https://Labs.play-with-k8s.com to practice k8s in online 
