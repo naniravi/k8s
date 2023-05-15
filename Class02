@@ -29,6 +29,37 @@ Managed (Cloud Managed) K8s Clusters
 4.IKE---> IBM k8s Engine
 
 
+What k8s Distribution you are using ?
+
+EKS cluster setup we are using 
+
+ 
+why you have 10 workers /node in your project?
+
+
+We are deploying these many containers I need this much resources on & awarage of each container & I have these many nodes with this much capacity 
+
+
+In real time
+================= 
+
+we have 20 Nodes
+Each Node capacity 128GB RAM 32 CPU 
+
+I need to deploy lot of pods, pod will have container 
+ 
+
+
+
+setup kubeadm
+===============
+
+Master Min CPU 2 memory 4GB (t2.medium)
+
+Worker 1 cpu 1 GB  Ram (t2 .micro )
+
+
+
 
 
 
