@@ -5,7 +5,7 @@ We need to manage cluster install configure,configure etc...
 1.Minikube
 2.Kubeadm
 3.Rancher
-4 KubeProxy
+
 
 https://Labs.play-with-k8s.com to practice k8s in online 
 
