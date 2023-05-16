@@ -90,6 +90,49 @@ describeed pod
 $kubectl describe po  mavenwebapppod -n test-ns
 
 $ kubectl get po -o wide -n test-ns
+
+
+
+curl -v 10.44.0.1:8080/maven-web-application/
+ curl -v telnet://10.44.0.1:8080
+
+    
+==========================
+
+service in K8s
+=====================
+
+1.Servce makes the pods discoverable[Acessiable] inside the cluster or outside the cluster.
+
+2.service will identify the pods based on Labels
+$  kubectl get po -n test-ns --show-labels
+
+
+service
+=========
+clusterIp
+nodePort
+HeadlessService
+loadBalancer(ExternalLoadbalancer)
+
+
+$ kubectl get svc -n test-ns
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: <serviceName>
+  labels:
+    <key>: <value>
+  namespace:<Namespace>
+spec:
+  type: ClusteIP
+  selector:
+    <podlabelkey>: <podlabelvalue>
+  ports:
+  - port: <svcPort>
+    targetPort: <containerPort>
    
 
    
