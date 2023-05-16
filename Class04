@@ -1,0 +1,98 @@
+class04
+==========
+
+POD:
+====
+
+k8s is an orchestraction engine tool using k8s we can deploy & manage the containers 
+
+K8s will Shedue the pod & Manage the pods 
+
+POD:
+=====
+
+1.pod is smallest building block or basic unit of sheduling in kubernetes 
+
+2. Pod will always run on node in the cluster
+
+3 Inside pod we have one or more containers 
+
+4. pod is wraper of containres 
+
+pod have ip Adress but container does not IP Address 
+
+5. Any data saved inside the pod will Disappear ip the pod is deleted & created  
+
+
+Imperative Way meance==> Direct command 
+Declerative==> yaml manner 
+
+
+Imperative way
+------------
+$ kubectl run mavenwebapppod --image=naniravi/java-web-app --labels app=javawebapp --port=8080 ==Create pod in k8s
+
+$ kubectl run mavenwebapppod --image=naniravi/java-web-app --labels app=javawebapp --port=8080 --dry-run
+
+$ kubectl run mavenwebapppod --image=naniravi/java-web-app --labels app=javawebapp --port=8080 --dry-run=client
+
+$  kubectl run mavenwebapppod --image=naniravi/java-web-app --labels app=javawebapp --port=8080 --dry-run=client -o yaml
+
+$ kubectl run mavenwebapppod --image=naniravi/java-web-app --labels app=javawebapp --port=8080 --dry-run=client -o yaml > mavenwebapppod.yaml
+ 
+
+
+
+Declerating way 
+---------
+apiVersion: v1
+kind: Pod
+metadata:
+  name: <podName>
+  labels:
+    <key>: <value>
+     <key>: <value>
+spec:
+  containers:
+  - name: <containerName>
+    image: <Imagetag>
+    ports:
+    - containerPort: <portof container>
+    
+         
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: javawebapp
+  name: mavenwebapppod
+spec:
+  containers:
+    - image: naniravi/java-web-app:1
+      name: mavenwebapppod
+      ports: null
+    - containerPort: 8080
+
+
+error: image pull backoff /error image pull 
+if your iamges/tag does not exit/if you are private repo you will get this error
+
+$Kubectl get po -n test-ns
+
+$ kubectl get po -o wide -n test-ns
+
+
+----------------
+
+describeed pod
+
+
+$kubectl describe po  mavenwebapppod -n test-ns
+
+$ kubectl get po -o wide -n test-ns
+   
+
+   
+   
+  
+ 
