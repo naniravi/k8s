@@ -1,1 +1,151 @@
 
+Kubectl get no
+
+
+Kubectl get nodes
+
+$kubectl get nodes -v=8 ==> What is happening in the bakground 
+
+
+$ kubectl get ns/ kubectl get nodes
+
+$kubectl version ==> Kubernetesversion 
+
+
+==============
+$ sudo cat /etc/kubernetes/admin.conf==> Kubeconfig file will be stored 
+
+$mkdir ~/.kube
+$ vi ~/.kube/config
+=======================
+
+$kubectl get nodes
+==============================
+
+ network test (ping ) the ip or not 
+-------------------------------
+
+curl -v telnet://172.31.14.131:6443
+
+$kubectl get pods -n kube-system
+$ kubectl get pods -n kube-system -o wide
+
+
+
+
+
+K8s Objects/kubernetes WorkLoads/kubernetes Resources
+==================================
+
+k8s 
+
+pod
+Replicaton Controller 
+
+ReplicaSet
+DaemonSet
+Deployment
+Service
+Persistent Volumes  
+Persistent Volume claim
+Stateful Set
+=================
+
+What is Kubernetes NameSpace?
+
+1.We can use Namespace is  for Isolations
+
+2.we can create security for one namespace to another namespace for not updating delate creating etc...
+
+3.you have multiple teams every one is deploying application in same cluster 
+
+
+4.One team is getting more resouces we can apply resources how much cpu,memory pods 
+Their is concept call resource quota 
+
+5. we can set the  resource quota  at name space level, they cannot over utilize cluster 
+
+$kubectl get ns / kubectl get namaspace==> To see the namespaces 
+
+by Default we have 4 namesSpace
+
+Default
+kubesystem
+kube public --> it is reserved for k8s purpose only 
+kube-node-lease
+
+$kubectl get all -n kube-system
+
+
+$kubctl api-resources ==>how to see the k8s api resources  
+
+Any k8s object we can do 2 types
+
+1.Imperative
+-----------
+using commands:
+kubectl create namespace <namspace>
+kubectl create namespace test-ns
+kubectl run   <pod Name> --image <iamget>
+  
+Declerative 
+------------
+using manifest File
+Declerative is writing in kubernetes manfiset file 
+
+k8s jsons/yaml for in manifest files 
+
+apiVersion:v1
+kind : namespace
+metadata: 
+   name: test-ns
+   labels: 
+      teamname: testing team
+      teaml:  qateamdl
+
+
+vi testns.yaml
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test-ns
+---
+apiVersion: v1
+  kind: ResourceQuota
+  metadata:
+    name: pods-high
+    namspace: test-ns
+  spec:
+    hard:
+      cpu: "10"
+      memory: 10Gi
+      pods: "10"
+
+$ kubectl apply -f testns.yaml
+
+testns namespace has been creted
+
+403==> forbiden error more resouces we used meance based on resouce quota
+
+$kubectl get resourcequota -n test-ns==> To see the resourcequota of particular Namespace
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
