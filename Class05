@@ -114,6 +114,85 @@ spec:
 $kubectl apply -f  javawebapppod.yaml
 
 
+$ curl -v http://mavenwebappsvc/java-web-app/
+
+
+curl -v telnet://mavenwebappsvc:80
+
+$  kubectl exec  -it javawebappod -n test-ns -- /bin/bash
+
+
+Node port 
+============
+
+If I create service of type node port it will expose the service on each node ip at a static port
+
+Using NodeIP & Node Port we can Acess when you create service of type NodePORT 
+
+$ vi javawebapppod.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: javawebappod
+  namespace: test-ns
+  labels:
+    app: javawebapp
+spec:
+  containers:
+  - name: javawebappcontainer
+    image: naniravi/java-web-app:1
+    ports:
+    - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: javaweappsvc
+  namespace: test-ns
+spec:
+  type: NodePort
+  selector:
+    app: javawebapp
+  ports:
+  - port: 80
+    targetPort: 8080
+
+-------------------------
+
+vi  mavenwebapppod.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: mavenwebapp
+  name: mavenwebapppod
+  namespace: test-ns
+spec:
+  containers:
+    - image: naniravi/java-web-app:1
+      name: mavenwebapppod
+      ports:
+        - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+   name: mavenwebappsvc
+   namespace: test-ns
+spec:
+  type:  NodePort
+  selector:
+    app: mavenwebapp
+  ports:
+  - port: 80
+    targetPort: 8080
+ 
+
+
 
 
 
