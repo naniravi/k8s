@@ -190,6 +190,22 @@ spec:
   ports:
   - port: 80
     targetPort: 8080
+    
+    $ kubectl get po -o wide -n test-ns --show-labels
+
+$ kubectl get svc -n test-ns -o wide 
+
+$ kubetl describe svc javawebappsvc -n test-ns
+
+
+$  kubectl scale  rc javawebrc --replicas 2 -n test-ns
+
+$ kubectl get ep -n test-ns
+
+
+I want to delete the application pernmantry I need to delete rc 
+
+$ kubectl delete rc <rc name> -n test-ns
  
 
 
