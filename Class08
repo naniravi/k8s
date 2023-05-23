@@ -1,0 +1,9 @@
+What is RC & RC?
+
+Both are doing the same things it will create pod & it will create pod life cycle, we can scalein & scale Out but the only difference is its selector Support 
+
+
+Replication Controller will support Equality Bases Selectors 
+
+Replica set support Both Equality Base & set based Selectors 
+
