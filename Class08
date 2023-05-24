@@ -1,3 +1,51 @@
+
+
+
+ReplicaSet
+===================
+
+
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: javawebrs
+  namespace: test-ns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: javawebapp
+  template:
+    metadata:
+      name: javaweapppod
+      labels:
+        app: javawebapp
+    spec:
+      containers:
+      - name: javawebappcontainer
+        image: naniravi/java-web-app:1
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: javaweappsvc
+  namespace: test-ns
+spec:
+  type: NodePort
+  selector:
+    app: javawebapp
+  ports:
+  - port: 8080
+    targetPort: 8080
+    name: tomcat
+
+
+
+
+
 What is RC & RC?
 
 Both are doing the same things it will create pod & it will create pod life cycle, we can scalein & scale Out but the only difference is its selector Support 
