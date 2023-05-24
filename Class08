@@ -55,3 +55,36 @@ Replication Controller will support Equality Bases Selectors
 
 Replica set support Both Equality Base & set based Selectors 
 
+
+
+DaemonSet 
+===========
+
+vi nginxds.yaml
+
+apiVersion: app/v1
+kind: DaemonSet
+metadata:
+   name: nginxns
+spec:
+  selector:
+     matchLabels:
+        app: nginx
+  template:
+    metadata:
+      name: nginxpod
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+
+$ kubectl get ds
+$ kubectl get daemonsets
+
+
+
+
