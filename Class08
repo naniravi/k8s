@@ -87,4 +87,31 @@ $ kubectl get daemonsets
 
 
 
+If you want to create pod in master also we can use below tags ,but by default Damon set will not create pod in Master node taints will be asses
+============================================================================================================================================
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+   name: nginxns
+spec:
+  selector:
+     matchLabels:
+        app: nginx
+  template:
+    metadata:
+      name: nginxpod
+      labels:
+        app: nginx
+    spec:
+       tolerations:
+       - operator: "Exists"
+         effect: "NoSchedule"
+       containers:
+       - name: nginx
+         image: nginx
+         ports:
+         - containerPort: 80
+
+
+
 
